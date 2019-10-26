@@ -1,0 +1,24 @@
+.field {
+  display:        flex;
+  flex-direction: column;
+  padding:        10px 0px;
+
+  label {
+    font-weight: bold;
+  }
+}
+
+.actions {
+  padding: 10px 0px;
+}
+
+.container {
+  width: 60vw;
+
+  .category_container {
+    display:         flex;
+    justify-content: center;
+
+    div { padding: 0px 10px; }
+  }
+}
