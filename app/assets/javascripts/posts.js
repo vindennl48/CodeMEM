@@ -10,7 +10,6 @@ function loadCategory1() {
   }).then(function(response) {
     return response.json();
   }).then(function(data) {
-    console.log(data);
     let options = new Set();
     for (var i=0; i<data.length; i++) {
       options.add(`<option value ='`+data[i].category1+`'>`);
@@ -83,6 +82,19 @@ function onCategory2Change() {
 }
 
 function postsNewFormOnLoad() {
+  // clear and disable categories 2 and 3
+  document.getElementById('category_2_field').style.display = 'none';
+  document.getElementById('category_3_field').style.display = 'none';
+
+  // load the first dropdown category
+  loadCategory1();
+
+  // -- Event Listeners --
+  document.getElementById('post_category1').addEventListener('change', onCategory1Change);
+  document.getElementById('post_category2').addEventListener('change', onCategory2Change);
+};
+
+function postsIndexOnLoad() {
   // clear and disable categories 2 and 3
   document.getElementById('category_2_field').style.display = 'none';
   document.getElementById('category_3_field').style.display = 'none';

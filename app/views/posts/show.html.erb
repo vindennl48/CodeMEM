@@ -1,29 +1,20 @@
-<p id="notice"><%= notice %></p>
+<div class=" container ">
+  <div>
+    <p id="notice"><%= notice %></p>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
+  <h1><%= @post.name %></h1>
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
+  <br></br>
 
-<p>
-  <strong>Category1:</strong>
-  <%= @post.category1 %>
-</p>
+  <div class=" post_categories border_bottom ">
+    <div><%= @post.category1 %></div>
+    <div><%= @post.category2 %></div>
+    <div><%= @post.category3 %></div>
+  </div>
 
-<p>
-  <strong>Category2:</strong>
-  <%= @post.category2 %>
-</p>
+  <div class=" post_body "><%= @post.body %></div>
 
-<p>
-  <strong>Category3:</strong>
-  <%= @post.category3 %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
+</div>

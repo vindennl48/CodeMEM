@@ -37,6 +37,17 @@ h2 { font-size: 24px; }
 h3 { font-size: 18.7px; }
 h4 { font-size: 16px; }
 
+a {
+  &.no_style {
+    color:           inherit;
+    text-decoration: inherit;
+
+    &:hover {
+      color: inherit;
+    }
+  }
+}
+
 table {
   //shrink to fit
   width:       1px;

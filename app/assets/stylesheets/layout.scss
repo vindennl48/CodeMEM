@@ -13,6 +13,9 @@
 }
 
 .container {
+  @media only screen and (max-width: 412px) {
+    width: 90vw;
+  }
   width: 60vw;
 
   .category_container {
@@ -21,4 +24,30 @@
 
     div { padding: 0px 10px; }
   }
+}
+
+.post_categories {
+  display:       grid;
+  grid-template: 1fr / 1fr 1fr 1fr;
+  grid-gap:      10px;
+
+  &.border_top {
+    border-top: 1px solid black;
+  }
+  &.border_bottom {
+    border-bottom: 1px solid black;
+  }
+}
+
+.post_body {
+  margin:      10px 0px;
+  white-space: pre-wrap;
+}
+
+.posts_index_card {
+  border:         1px solid black;
+  padding:        10px;
+  margin:         10px;
+  display:        flex;
+  flex-direction: column;
 }
