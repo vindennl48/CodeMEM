@@ -37,6 +37,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def filter
+    categories = params.permit(:category1, :category2, :category3)
+    puts "\n\n----> FILTER MEMBER FUNCTION!, categories: #{categories}\n\n"
+    respond_to do |format|
+      format.json { render json: Post.where(params.permit(:category1, :category2, :category3)) }
+    end
+  end
+
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update

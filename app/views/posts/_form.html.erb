@@ -12,22 +12,20 @@
   <% end %>
 
   <div class=" category_container ">
-    <div class="field">
-      <%= form.label :category1 %>
-      <%#= form.text_field :category1 %>
-      <%= form.select :category1, Post.all.collect {|c| [c.category1, c.id]}, { include_blank: true } %>
+    <div class="field" id="category_1_field">
+      <%= form.label "Category 1" %>
+      <%= form.text_field :category1, {list: "category_1"} %>
+      <datalist id="category_1"></datalist>
     </div>
-
-    <div class="field">
-      <%= form.label :category2 %>
-      <%#= form.text_field :category2 %>
-      <%= form.select :category2, Post.all.collect {|c| [c.category2, c.id]}, { include_blank: true } %>
+    <div class="field" id="category_2_field">
+      <%= form.label "Category 2" %>
+      <%= form.text_field :category2, {list: "category_2"} %>
+      <datalist id="category_2"></datalist>
     </div>
-
-    <div class="field">
-      <%= form.label :category3 %>
-      <%#= form.text_field :category3 %>
-      <%= form.select :category3, Post.all.collect {|c| [c.category3, c.id]}, { include_blank: true } %>
+    <div class="field" id="category_3_field">
+      <%= form.label "Category 3" %>
+      <%= form.text_field :category3, {list: "category_3"} %>
+      <datalist id="category_3"></datalist>
     </div>
   </div>
 
@@ -45,3 +43,5 @@
     <%= form.submit %>
   </div>
 <% end %>
+
+<script>postsNewFormOnLoad()</script>
