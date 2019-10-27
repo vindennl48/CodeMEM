@@ -1,0 +1,15 @@
+<div class=" posts " id="posts_list">
+  <% @posts.each do |post| %>
+    <%= link_to post, class: "no_style" do %>
+      <div class=" posts_index_card ">
+        <h2><%= post.name %></h2>
+        <div class=" post_body "><%= post.body.truncate(100, separator: /\s/) %></div>
+        <div class=" post_categories border_top ">
+          <div><%= post.category1 %></div>
+          <div><%= post.category2 %></div>
+          <div><%= post.category3 %></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

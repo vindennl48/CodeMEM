@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all.order(updated_at: :desc)
+    @posts = Post.limit(20).order('updated_at desc')
   end
 
   # GET /posts/1
@@ -38,10 +38,11 @@ class PostsController < ApplicationController
   end
 
   def filter
-    categories = params.permit(:category1, :category2, :category3)
-    puts "\n\n----> FILTER MEMBER FUNCTION!, categories: #{categories}\n\n"
+    puts "\n\n-->params:  #{params}\n\n"
+    @posts = Post.where(params.permit(:category1, :category2, :category3)).limit(20).order('updated_at desc')
     respond_to do |format|
-      format.json { render json: Post.where(params.permit(:category1, :category2, :category3)) }
+      format.json { render json: @posts }
+      format.js
     end
   end
 

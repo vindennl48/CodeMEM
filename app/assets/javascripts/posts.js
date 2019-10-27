@@ -94,6 +94,32 @@ function postsNewFormOnLoad() {
   document.getElementById('post_category2').addEventListener('change', onCategory2Change);
 };
 
+function postsIndexLoadPosts() {
+  let category1 = document.getElementById('post_category1').value;
+  let category2 = document.getElementById('post_category2').value;
+  let category3 = document.getElementById('post_category3').value;
+  let categories = []
+
+  if (category1 != "") {
+    categories.push(`category1=`+category1);
+  }
+  if (category2 != "") {
+    categories.push(`category2=`+category2);
+  }
+  if (category3 != "") {
+    categories.push(`category3=`+category3);
+  }
+
+  Rails.ajax({
+    url: '/filter',
+    type: 'post',
+    dataType: 'script',
+    data: [...categories].join('&'),
+    success: function(response) {},
+    error: function(response) {},
+  })
+}
+
 function postsIndexOnLoad() {
   // clear and disable categories 2 and 3
   document.getElementById('category_2_field').style.display = 'none';
@@ -102,7 +128,14 @@ function postsIndexOnLoad() {
   // load the first dropdown category
   loadCategory1();
 
+  postsIndexLoadPosts();
+
   // -- Event Listeners --
   document.getElementById('post_category1').addEventListener('change', onCategory1Change);
+  document.getElementById('post_category1').addEventListener('change', postsIndexLoadPosts);
+
   document.getElementById('post_category2').addEventListener('change', onCategory2Change);
+  document.getElementById('post_category2').addEventListener('change', postsIndexLoadPosts);
+
+  document.getElementById('post_category3').addEventListener('change', postsIndexLoadPosts);
 };
