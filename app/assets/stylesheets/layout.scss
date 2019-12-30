@@ -13,7 +13,7 @@
 }
 
 .container {
-  @media only screen and (max-width: 412px) {
+  @media only screen and (max-width: 800px) {
     width: 90vw;
   }
   width: 60vw;
@@ -21,6 +21,10 @@
   .category_container {
     display:         flex;
     justify-content: center;
+
+    @media only screen and (max-width: 412px) {
+      flex-direction: column;
+    }
 
     div { padding: 0px 10px; }
   }

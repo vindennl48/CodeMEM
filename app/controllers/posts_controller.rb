@@ -38,7 +38,6 @@ class PostsController < ApplicationController
   end
 
   def filter
-    puts "\n\n-->params:  #{params}\n\n"
     @posts = Post.where(params.permit(:category1, :category2, :category3)).limit(20).order('updated_at desc')
     respond_to do |format|
       format.json { render json: @posts }
